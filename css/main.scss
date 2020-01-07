@@ -1,0 +1,122 @@
+// SCSS template
+// Variables, Functions, Content
+
+// Variables
+$colors: (
+  text-dark: #000,
+  text-light: #fff,
+  primary: #005dff,
+  primary-light: lighten(#005dff, 40%),
+  primary-dark: darken(#005dff, 40%),
+  accent: #fff6bb,
+  odd: yellow,
+  even: teal
+);
+$padding: 15px;
+$borders: 15px;
+$tablet: 520px;
+$desktop: 768px;
+$margin: 1em;
+
+// Functions
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+// Content
+body {
+  margin: 0em;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "h1 h1"
+    "inputnumber factor"
+    "p p";
+  #bg {
+    clip-path: polygon(100% 0, 100% 82%, 45% 100%, 0 100%, 0 0);
+    background-color: color(accent);
+  }
+  @include tablet {
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "h1 h1 h1"
+      "inputnumber factor p";
+  }
+}
+body,
+html {
+  height: fit-content;
+}
+
+h1 {
+  background-color: color(accent);
+  grid-area: h1;
+  height: fit-content;
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+  padding: $padding $padding * 4;
+}
+
+div {
+  background-color: color(primary);
+  grid-column: auto auto;
+  grid-template-areas: "label numberinput";
+  display: inline-block;
+  align-items: center;
+  height: fit-content;
+  border-radius: $borders;
+  padding: $padding $padding * 3;
+  margin: $margin;
+}
+label {
+  grid-area: label;
+  color: color(text-light);
+}
+button {
+  display: block;
+  display: inline-block;
+  height: fit-content;
+  width: fit-content;
+  text-align: center;
+
+  padding: $padding / 3;
+  margin: $margin * 2.5 $margin;
+}
+
+input {
+  display: inline-block;
+  grid-area: numberinput;
+}
+
+#inputnumber {
+  grid-area: inputnumber;
+}
+
+#factor {
+  grid-area: factor;
+}
+p {
+  display: inline-block;
+  // height: fit-content;
+  // width: fit-content;
+  grid-area: p;
+  text-align: center;
+}
+
+#gobutton {
+}
