@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="img/warranty.png" />
+    <link rel="stylesheet" href="CSS/main.css" />
+    <title>JS Basics</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+
+    <div id="inputnumber">
+      <label for="toSquare">Number: </label>
+      <input
+        type="number"
+        id="toSquare"
+        name="toSquare"
+        required
+        min="1"
+        max="100"
+        size="5"
+        value="2"
+        onchange="updateNumbers()"
+      />
+    </div>
+
+    <div id="factor">
+      <label for="factorBy">Factor: </label>
+      <input
+        type="number"
+        id="factorBy"
+        name="factorBy"
+        required
+        min="1"
+        max="100"
+        size="3"
+        value="2"
+        onchange="updateNumbers()"
+      />
+    </div>
+    <p id="gobutton">
+      <button onclick="go()">Submit!</button>
+    </p>
+
+    <script src="JS/index.js"></script>
+  </body>
+</html>
